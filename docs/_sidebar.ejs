@@ -1,0 +1,25 @@
+<nav class="docs__sidebar">
+	<ul class="docs__sidebar__main">
+		<% Object.keys(public.docs._data.sidebar).forEach(topic => {
+			topic = public.docs._data.sidebar[topic];
+		%>
+			<li class="docs__sidebar__topic">
+				<%= topic.name %>
+
+				<ul class="docs__sidebar__topic__sub">
+					<% topic.submenu.forEach(([name, link]) => {
+						const classes = (
+							current.source === link.split('.')[0] ?
+							'docs__sidebar__topic__sub__sub-active' :
+							''
+						);
+					%>
+						<li class="docs__sidebar__topic__sub__sub <%= classes %>">
+							<a href="<%= link %>"><%= name %></a>
+						</li>
+					<% }); %>
+				</ul>
+			</li>
+		<% }); %>
+	</ul>
+</nav>

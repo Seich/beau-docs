@@ -1,0 +1,30 @@
+{
+	"sidebar": {
+		"quickstart": {
+			"name": "Quick Start",
+			"submenu": [
+				["Getting Started", "index.html"],
+				["What is Beau?", "what-is-beau.html"]
+			]
+		},
+		"configuration": {
+			"name": "Configuration",
+			"submenu": [
+				["Requests", "requests.html"],
+				["Composition", "composition.html"],
+				["Defaults", "defaults.html"],
+				["Plugins", "plugins.html"],
+				["Environment Variables", "environment-variables.html"],
+				["Settings", "settings.html"]
+			]
+		},
+		"cli": {
+			"name": "CLI",
+			"submenu": [
+				["Init", "init.html"],
+				["Request", "request.html"],
+				["List", "list.html"]
+			]
+		}
+	}
+}

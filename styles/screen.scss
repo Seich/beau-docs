@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Space+Mono');
+@import 'colors.scss';
+@import 'reset.scss';
+@import 'header.scss';
+@import 'docs.scss';
+@import 'home.scss';
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Source Sans Pro', sans-serif;
+	color: $black;
+}
+
+code {
+	font-family: 'Space Mono', monospace;
+}
+
+.hero {
+	background: $red;
+	color: #fff;
+	padding: 3em 0 4em;
+	text-align: center;
+
+	img {
+		height: 250px;
+	}
+
+	h2 {
+		margin-top: 3em;
+		font-weight: normal;
+	}
+
+	pre {
+		background: $black;
+		border-radius: 5px;
+		box-sizing: border-box;
+		font-size: 1em;
+		margin: 0 auto;
+		padding: 15px;
+		width: 30%;
+		border: 1px solid darken($black, 3);
+	}
+}

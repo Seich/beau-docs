@@ -1,0 +1,73 @@
+<div class="hero">
+  <img src="/assets/logo.svg" alt="">
+
+  <h2>Beau: The easiest way to test your web APIs</h2>
+
+  <pre><code>npm install -g beau</code></pre>
+</div>
+
+<div class="content">
+  <section>
+    <div class="description">
+      <h1>Simple</h1>
+      <p>Beau makes testing APIs easy. All it takes is a simple yaml configuration file. You can easily configure the request's method, payload, headers and params.</p>
+    </div>
+    <div class="example">
+      <pre><code>endpoint: "https://example.com"
+
+POST /posts:
+  alias: post
+  payload:
+    hello: World</code></pre>
+    </div>
+  </section>
+
+
+  <section>
+    <div class="description">
+      <h1>Succinct</h1>
+      <p>Make use of variables and defaults, don't repeat yourself.</p>
+    </div>
+      <div class="example">
+        <pre><code>endpoint: "https://example.com"
+
+environment:
+  post: 1
+
+defaults:
+  headers:
+    authentication: Bearer 123456
+
+GET /posts/$env.post: post</code></pre>
+      </div>
+  </section>
+
+  <section>
+    <div class="description">
+      <h1>Composable</h1>
+      <p>Compose multiple requests together. You can mix and match requests to test whole workflows.</p>
+    </div>
+    <div class="example">
+      <pre><code>endpoint: "https://example.com"
+
+GET /session: session
+
+POST /profile:
+  alias: profile
+  headers:
+    authentication: Bearer $session.token
+  payload:
+    name: David</code></pre>
+    </div>
+  </section>
+
+  <div class="documentation">
+    <h1>Simple as Pie.</h1>
+    <p>Get started fast by checking out the <a href="/docs">Documentation</a>.</p>
+  </div>
+</div>
+
+
+<footer>
+  David Sergio Díaz © All Rights Reserved.
+</footer>

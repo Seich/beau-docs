@@ -1,0 +1,11 @@
+<%- partial("../_header") %>
+<div class="docs">
+	<%- partial("_sidebar") %>
+
+	<main class="docs__main" role="main">
+		<div class="docs__container">
+			<%- yield %>
+		</div>
+	</main>
+</div>
+<%- partial("../_footer") %>
