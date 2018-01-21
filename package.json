@@ -1,0 +1,26 @@
+{
+  "name": "beaujs.com",
+  "version": "0.6.1",
+  "description": "Documentation for Beau.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "harp server",
+    "build": "harp compile"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Seich/beau.github.io.git"
+  },
+  "author": "David Diaz <seich@martianwabbit.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Seich/beau.github.io/issues"
+  },
+  "homepage": "https://github.com/Seich/beau.github.io#readme",
+  "dependencies": {
+    "harp": "^0.25.0"
+  }
+}

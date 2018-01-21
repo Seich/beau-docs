@@ -1,0 +1,21 @@
+version: 2
+jobs:
+  build:
+    branches:
+      only:
+        - master
+    docker:
+      - image: circleci/node:8
+    working_directory: ~/repo
+    environment:
+      - SOURCE_BRANCH: master
+      - TARGET_BRANCH: gh-pages
+    steps:
+      - checkout
+      - run:
+          name: Install Deps
+          command: npm install
+
+      - deploy:
+        name: Deploy
+        command: ./scripts/deploy.sh
