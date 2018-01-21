@@ -15,6 +15,7 @@
 				["Defaults", "defaults.html"],
 				["Plugins", "plugins.html"],
 				["Environment Variables", "environment-variables.html"],
+				["Hosts", "hosts.html"],
 				["Settings", "settings.html"]
 			]
 		},
