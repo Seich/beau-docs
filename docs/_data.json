@@ -19,6 +19,7 @@
 				["Settings", "settings.html"]
 			]
 		},
+
 		"cli": {
 			"name": "CLI",
 			"submenu": [

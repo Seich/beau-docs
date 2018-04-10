@@ -15,30 +15,3 @@ body {
 code {
 	font-family: 'Space Mono', monospace;
 }
-
-.hero {
-	background: $red;
-	color: #fff;
-	padding: 3em 0 4em;
-	text-align: center;
-
-	img {
-		height: 250px;
-	}
-
-	h2 {
-		margin-top: 3em;
-		font-weight: normal;
-	}
-
-	pre {
-		background: $black;
-		border-radius: 5px;
-		box-sizing: border-box;
-		font-size: 1em;
-		margin: 0 auto;
-		padding: 15px;
-		width: 30%;
-		border: 1px solid darken($black, 3);
-	}
-}

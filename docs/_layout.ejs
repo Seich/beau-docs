@@ -1,5 +1,8 @@
 <%- partial("../_header") %>
 <div class="docs">
+
+	<a class="docs__menu__toggle" data-menu-toggle>Menu</a>
+
 	<%- partial("_sidebar") %>
 
 	<main class="docs__main" role="main">
@@ -8,4 +11,14 @@
 		</div>
 	</main>
 </div>
+
+<script>
+	var btn = document.querySelector('[data-menu-toggle]');
+	var sidebar = document.querySelector('.docs__sidebar');
+
+	btn.addEventListener('click', function() {
+		sidebar.classList.toggle('is-open');
+	});
+</script>
+
 <%- partial("../_footer") %>
