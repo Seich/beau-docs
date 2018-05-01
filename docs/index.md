@@ -1,8 +1,10 @@
 # Getting Started
 
-Beau is super fast to get started with. Just follow these steps to be up and running in a couple of minutes.
+Beau is super fast to get started with. Just follow these steps to be up and
+running in a couple of minutes.
 
 ## Installing Beau
+
 You can install beau using your favorite node package manager.
 
 ```
@@ -12,41 +14,41 @@ $ npm install -g beau
 Done!
 
 ## Writing a config file
-The first thing you have to do is create a new config file. The default name for this file is `beau.yml` but you can name it whatever you want. You can either create this file yourself or have beau create it for you:
 
-```
-$ beau init --endpoint="http://example.com"
-```
+The first thing you have to do is create a new config file. The default name for
+this file is `beau.yml` but you can name it whatever you want. Normally you'll
+want to start it off by specifying the endpoint you'll be hitting.
 
-This will create a new file with the current version and with the endpoint set to whatever you want.
+**beau.yml:**
 
-beau.yml:
-``` yaml
-version: 1
+```yaml
 endpoint: http://example.com
 ```
 
-You can now add your first request, if you wanted to GET http://example.com/posts you'd tell Beau so by adding a new request and it's alias:
+You can now add your first request, if you wanted to GET
+http://example.com/posts you'd tell Beau so by adding a new
+[request](/docs/requests) and it's alias:
 
-beau.yml
-``` yaml
-version: 1
+**beau.yml**
+
+```yaml
 endpoint: https://jsonplaceholder.typicode.com
 
-GET /posts:
-	alias: posts
+GET /posts: posts
 ```
 
 Now you are ready to make your first request.
 
 ## Using the CLI
-The Beau CLI is fairly simple, you can list all requests in your config file using:
+
+The Beau CLI is fairly simple, you can list all requests in your config file
+using:
 
 ```
 $ beau list
 ```
 
-It'll list them like this:
+It should output something like this:
 
 ```
 HTTP Verb     Alias       Endpoint
@@ -59,7 +61,7 @@ There's our `posts` request. We'll tell beau to request that one using:
 $ beau request posts
 ```
 
-This should eventually give your whatever the server responded back:
+When done it'll print the results to the command line like this:
 
 ```
 Status              Endpoint
@@ -75,3 +77,6 @@ Status              Endpoint
   ...
 ]
 ```
+
+And that's it! You are well on your way to mastering Beau. Take a look at the
+[requests](/docs/requests) section to learn more on what a request can do.

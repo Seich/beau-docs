@@ -23,7 +23,6 @@
 		"cli": {
 			"name": "CLI",
 			"submenu": [
-				["Init", "init.html"],
 				["Request", "request.html"],
 				["List", "list.html"],
 				["DotEnv", "dotenv.html"]

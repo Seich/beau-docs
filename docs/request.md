@@ -1,5 +1,9 @@
 # Request
-Request is used to trigger a particular request. You do so by passing the request's alias. It also has the option to remove formatting and displaying all data available for a current request. By default it'll print the status code, the endpoint and the body of the request's reponse.
+
+Request is used to trigger a particular request. You do so by passing the
+request's alias. It also has the option to remove formatting and displaying all
+data available for a current request. By default it'll print the status code,
+the endpoint and the body of the request's reponse.
 
 ## Usage
 
@@ -18,6 +22,7 @@ $ beau request --help
 ```
 
 ### Example
+
 ```
 $ beau request example-request
 ```

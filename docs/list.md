@@ -1,7 +1,10 @@
 # List
-List shows you the list of currently configured requests, it's methods and aliases.
+
+List shows you the list of currently configured requests, it's methods and
+aliases.
 
 ## Usage
+
 ```
 $ beau list --help
 
@@ -17,9 +20,11 @@ $ beau list --help
 ```
 
 ### Example
+
 ```
 $ beau list
 ```
+
 The out will generally look like this:
 
 ```

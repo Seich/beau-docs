@@ -52,6 +52,11 @@ Notice that within the square brackets the function is invoked exactly as a
 javascript function allowing you to pass over arguments along with the function
 call.
 
+Normally a Dynamic Value is cast to a string and replaced in place of it's call;
+If the Dynamic Value is the only value for a given field it can change the
+field's type to any special value. This allows plugin developers to use special
+objects internally.
+
 ## Making your own
 
 Plugins in Beau are very straightforward to create all you need is to define a
