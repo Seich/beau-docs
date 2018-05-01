@@ -9,6 +9,10 @@ file. You list these under the `plugins` key. You should pass the plugin name in
 CamelCase. If you pass an object it's value will be passed onto the plugin;
 These can be used to configure how the plugin behaves.
 
+Beau will attempt to load every plugin by first transforming it's name to
+kebab-case and prefixing it with `beau-`. For example `jwt` will attempt to load
+`beau-jwt` as a dependency.
+
 ```yaml
 endpoint: http://example.com
 plugins:
