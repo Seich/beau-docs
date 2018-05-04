@@ -5,6 +5,10 @@
 	grid-template-columns: 18em 1fr;
 	grid-gap: 0;
 	height: calc(100vh - 75px);
+
+	h1 {
+		font-family: 'Source Sans Pro', sans-serif;
+	}
 }
 
 .docs__sidebar {

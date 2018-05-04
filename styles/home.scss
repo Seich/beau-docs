@@ -1,33 +1,33 @@
 @import 'colors.scss';
 
 .hero {
-	background: $red;
-	color: #fff;
-	padding: 3em 0 4em;
+	padding: 5em;
 	text-align: center;
 
-	img {
-		height: 250px;
+	p {
+		font-size: 2em;
 	}
 
-	h2 {
-		margin-top: 3em;
-		font-weight: normal;
+	img {
+		height: 300px;
+		margin-bottom: 2em;
 	}
 
 	pre {
-		background: $black;
+		background: #fafafa;
+		padding: 1.5em 4em;
 		border-radius: 5px;
-		box-sizing: border-box;
-		font-size: 1em;
+		overflow-x: auto;
 		margin: 0 auto;
-		padding: 15px;
-		width: 30%;
-		border: 1px solid darken($black, 3);
+		display: inline-block;
 	}
 }
 
 .content {
+	h1 {
+		font-size: 3em;
+	}
+
 	section {
 		display: grid;
 		grid-template-columns: 3fr 4fr;
@@ -36,6 +36,7 @@
 		width: 100vw;
 		margin: 0 auto;
 		margin-top: 4em;
+		margin-bottom: 8em;
 
 		.description {
 			padding: 0 1em;
@@ -51,7 +52,7 @@
 				background: #fafafa;
 				padding: 1.5em 1em;
 				border-radius: 5px;
-				overflow-x: scroll;
+				overflow-x: auto;
 			}
 		}
 	}
@@ -78,14 +79,14 @@ footer {
 
 @media (max-width: 790px) {
 	.hero {
-		pre {
-			width: 80%;
-		}
+		padding: 3em 1em;
 	}
 
 	.content {
 		section {
 			grid-template-columns: 1fr;
+			margin-top: 0;
+			margin-bottom: 2em;
 
 			.description {
 				max-width: 90vw;

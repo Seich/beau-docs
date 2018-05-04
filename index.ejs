@@ -1,7 +1,7 @@
 <div class="hero">
   <img src="/assets/logo.svg" alt="">
 
-  <h2>Beau: The easiest way to test your web APIs</h2>
+  <p>Beau makes testing APIs easy.</p>
 
   <pre><code>npm install -g beau</code></pre>
 </div>
@@ -10,59 +10,57 @@
   <section>
     <div class="description">
       <h1>Simple</h1>
-      <p>Beau makes testing APIs easy. All it takes is a simple yaml configuration file. You can easily configure the request's method, payload, headers and params.</p>
+      <p>Beau is all about productivity. All it takes a yaml file and a couple of lines.</p>
     </div>
-    <div class="example">
-      <pre><code>endpoint: "https://example.com"
 
-POST /posts:
-  alias: post
-  payload:
-    hello: World</code></pre>
+    <div class="example">
+      <pre><code>endpoint: https://example.com
+
+GET /:
+  alias: home</code></pre>
     </div>
   </section>
 
 
   <section>
     <div class="description">
-      <h1>Succinct</h1>
-      <p>Make use of variables and defaults, don't repeat yourself.</p>
+      <h1>Composable</h1>
+      <p><a href="/docs/composition.html">Chain multiple requests together</a>. Use the output of one request as a header in another.</p>
     </div>
       <div class="example">
-        <pre><code>endpoint: "https://example.com"
+      <pre><code>endpoint: https://example.com
 
-environment:
-  post: 1
+POST /session: session
 
-defaults:
+GET /profile:
+  alias: profile
   headers:
-    authentication: Bearer 123456
-
-GET /posts/$env.post: post</code></pre>
+    authentication: $session.body.token
+  payload:
+    name: David</code></pre>
       </div>
   </section>
 
   <section>
     <div class="description">
-      <h1>Composable</h1>
-      <p>Compose multiple requests together. You can mix and match requests to test whole workflows.</p>
+      <h1>Extendable</h1>
+      <p>Beau allows you to easily write <a href="/docs/plugins.html">plugins</a> to extend it's functionality. Automate authentication, hash values, and much more.</p>
     </div>
     <div class="example">
-      <pre><code>endpoint: "https://example.com"
+      <pre><code>endpoint: https://example.com
 
-GET /session: session
+plugins:
+  - jwt:
+      secret: 'hello world'
 
 POST /profile:
-  alias: profile
-  headers:
-    authentication: Bearer $session.token
-  payload:
-    name: David</code></pre>
+  formdata:
+    picture: $[readFile('cat.jpg')]</code></pre>
     </div>
   </section>
 
   <div class="documentation">
-    <h1>Simple as Pie.</h1>
+    <h1>Easy as Pie.</h1>
     <p>Get started fast by checking out the <a href="/docs">Documentation</a>.</p>
   </div>
 </div>

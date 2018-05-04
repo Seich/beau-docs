@@ -32,7 +32,7 @@ http://example.com/posts you'd tell Beau so by adding a new
 **beau.yml**
 
 ```yaml
-endpoint: https://jsonplaceholder.typicode.com
+endpoint: http://example.com
 
 GET /posts: posts
 ```
@@ -52,7 +52,7 @@ It should output something like this:
 
 ```
 HTTP Verb     Alias       Endpoint
-GET           posts       https://jsonplaceholder.typicode.com/posts/
+GET           posts       http://example.com/posts/
 ```
 
 There's our `posts` request. We'll tell beau to request that one using:
@@ -65,7 +65,7 @@ When done it'll print the results to the command line like this:
 
 ```
 Status              Endpoint
-200                 https://jsonplaceholder.typicode.com/posts/
+200                 http://example.com/posts/
 
 [
   {
