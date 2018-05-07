@@ -3,8 +3,8 @@
 		"quickstart": {
 			"name": "Quick Start",
 			"submenu": [
-				["Getting Started", "index.html"],
-				["What is Beau?", "what-is-beau.html"]
+				["What is Beau?", "what-is-beau.html"],
+				["Getting Started", "index.html"]
 			]
 		},
 		"configuration": {
