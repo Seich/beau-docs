@@ -8,21 +8,39 @@ the endpoint and the body of the request's reponse.
 ## Usage
 
 ```
-$ beau request --help
+Executes a request by name.
 
-  Usage: request [options] <alias>
+USAGE
+  $ beau request ALIAS
 
+ARGUMENTS
+  ALIAS  The alias of the request to execute.
 
-  Options:
-
-    -c --config <config>  Specify your request config file. Defaults to beau.yml in the current directory. (default: beau.yml)
-    -v --verbose          Show all the information available on the current request.
-    --no-format           Return the text without any special formatting. (default: true)
-    -h, --help            output usage information
+OPTIONS
+  -P, --param=param    Allows you to inject values into the request's environment.
+  -V, --verbose        Show all additional information available for a command.
+  -c, --config=config  [default: beau.yml] The configuration file to be used.
+  --no-format          Disables color formatting for usage on external tools.
 ```
-
-### Example
 
 ```
 $ beau request example-request
+```
+
+## [Params](#params)
+
+You can pass params using the `--param` flag. These parameters are added to your
+external env variables. They will replace any variables added using `.env`. They
+follow the same format as `.env` for each variable.
+
+```
+$ beau request example-request --param="hello=world"
+```
+
+You'd be able to use the param within your Beau file like this:
+
+```yaml
+...
+GET /hello/$env._.hello: helloWorld
+...
 ```
