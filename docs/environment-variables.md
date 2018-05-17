@@ -3,7 +3,7 @@
 Environment variables allows you to set variables arbitrarily. These variables
 are added to the internal cache just as the response of any other request is.
 This means they can be used anywhere normal requests can be composed on. These
-are added under the `env` key, which means you can compose them using $env
+are added under the `env` key, which means you can compose them using `$env`
 anywhere you want to.
 
 ## Key

@@ -6,17 +6,15 @@ aliases.
 ## Usage
 
 ```
-$ beau list --help
+Lists all available requests in the config file.
 
-  Usage: request [options] <alias>
+USAGE
+  $ beau list
 
-
-  Options:
-
-    -c --config <config>  Specify your request config file. Defaults to beau.yml in the current directory. (default: beau.yml)
-    -v --verbose          Show all the information available on the current request.
-    --no-format           Return the text without any special formatting. (default: true)
-    -h, --help            output usage information
+OPTIONS
+  -V, --verbose        Show all additional information available for a command.
+  -c, --config=config  [default: beau.yml] The configuration file to be used.
+  --no-format          Disables color formatting for usage on external tools.
 ```
 
 ### Example

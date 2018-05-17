@@ -17,6 +17,12 @@
 	h5,
 	h6 {
 	}
+
+	h2 a,
+	h3 a {
+		text-decoration: none;
+		color: black;
+	}
 }
 
 .docs__sidebar {
@@ -127,6 +133,14 @@
 		padding: 1em;
 		border: 1px solid #eaeaea;
 		overflow-x: auto;
+	}
+
+	blockquote {
+		padding: 2em;
+		font-style: italic;
+		border: 10px solid #eee;
+		border-radius: 5px;
+		margin: 3em 0;
 	}
 
 	&:after {
