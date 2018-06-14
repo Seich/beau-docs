@@ -3,7 +3,7 @@
 
   <p>Beau is a general purpose HTTP client that makes testing web APIs easy.</p>
 
-  <pre><code>npm install -g beau</code></pre>
+  <pre><code class="language-yaml">npm install -g beau</code></pre>
 </div>
 
 <div class="content">
@@ -14,10 +14,9 @@
     </div>
 
     <div class="example">
-      <pre><code>endpoint: https://example.com
+      <pre><code class="language-yaml">endpoint: https://example.com
 
-GET /:
-  alias: home</code></pre>
+GET /: home</code></pre>
     </div>
   </section>
 
@@ -25,10 +24,11 @@ GET /:
   <section>
     <div class="description">
       <h1>Composable</h1>
-      <p><a href="/docs/composition.html">Chain multiple requests together</a>. Use the output of one request as a header in another.</p>
+      <p>
+        <a href="/docs/composition.html">Chain multiple requests together</a>. Use the output of one request as a header in another.</p>
     </div>
-      <div class="example">
-      <pre><code>endpoint: https://example.com
+    <div class="example">
+      <pre><code class="language-yaml">endpoint: https://example.com
 
 POST /session: session
 
@@ -38,16 +38,17 @@ GET /profile:
     authentication: $session.body.token
   payload:
     name: David</code></pre>
-      </div>
+    </div>
   </section>
 
   <section>
     <div class="description">
       <h1>Extendable</h1>
-      <p>Beau allows you to easily write <a href="/docs/plugins.html">plugins</a> to extend it's functionality. Automate authentication, hash values, and much more.</p>
+      <p>Beau allows you to easily write
+        <a href="/docs/plugins.html">plugins</a> to extend it's functionality. Automate authentication, hash values, and much more.</p>
     </div>
     <div class="example">
-      <pre><code>endpoint: https://example.com
+      <pre><code class="language-yaml">endpoint: https://example.com
 
 plugins:
   - jwt:
@@ -61,7 +62,8 @@ POST /profile:
 
   <div class="documentation">
     <h1>Easy as Pie.</h1>
-    <p>Get started fast by checking out the <a href="/docs">Documentation</a>.</p>
+    <p>Get started fast by checking out the
+      <a href="/docs">Documentation</a>.</p>
   </div>
 </div>
 

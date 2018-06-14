@@ -43,8 +43,8 @@ PUT /path: ...
 
 ## Options
 
-If you pass a string as the value instead of an object, that string will be used
-as an alias.
+> If you pass a string as the value instead of an object, that string will be
+> used as an alias.
 
 ### Alias
 

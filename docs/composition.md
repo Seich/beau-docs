@@ -23,7 +23,7 @@ creates a new post and returns it's id. It looks something like this:
 
 ```json
 {
-  id: 1
+  "id": 1
 }
 ```
 
@@ -99,7 +99,7 @@ If you ever want to see what values are available for a particular request you
 can run it with the `--verbose` flag and Beau will show you all the data it has
 available.
 
-```
+```json
 $ beau request new-post
 
   Status              Endpoint

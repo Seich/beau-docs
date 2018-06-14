@@ -1,51 +1,52 @@
-@import 'colors.scss';
+@import "colors.scss";
 
 header {
-	background: $red;
-	box-sizing: border-box;
-	display: flex;
-	justify-content: space-between;
-	padding: 0.5em 4em;
-	height: 75px;
+  background: $red;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5em 4em;
+  height: 75px;
 
-	div.logo {
-		margin: 0;
-		padding: 10px 0;
+  div.logo {
+    margin: 0;
+    padding: 10px 0;
 
-		img {
-			height: 40px;
-		}
-	}
+    img {
+      height: 40px;
+    }
+  }
 
-	ul {
-		display: flex;
-		list-style: none;
-		margin: 0;
-		padding: 0;
+  ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 
-		li {
-			margin: 10px 1em;
-			padding: 10px 0;
-		}
-	}
+    li {
+      margin: 10px 1em;
+      padding: 10px 0;
+    }
+  }
 
-	a {
-		color: white;
-		text-decoration: none;
-	}
+  a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+  }
 
-	.github img {
-		height: 32px;
-		margin-top: -9px;
-	}
+  .github img {
+    height: 32px;
+    margin-top: -6px;
+  }
 }
 
 @media (max-width: 790px) {
-	header {
-		padding: 0.5em 10px;
+  header {
+    padding: 0.5em 10px;
 
-		a {
-			font-size: 1.3em;
-		}
-	}
+    a {
+      font-size: 1.3em;
+    }
+  }
 }

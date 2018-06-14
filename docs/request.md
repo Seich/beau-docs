@@ -7,7 +7,7 @@ the endpoint and the body of the request's reponse.
 
 ## Usage
 
-```
+```bash
 Executes a request by name.
 
 USAGE
@@ -23,7 +23,7 @@ OPTIONS
   --no-format          Disables color formatting for usage on external tools.
 ```
 
-```
+```bash
 $ beau request example-request
 ```
 
@@ -33,7 +33,7 @@ You can pass params using the `--param` flag. These parameters are added to your
 external env variables. They will replace any variables added using `.env`. They
 follow the same format as `.env` for each variable.
 
-```
+```bash
 $ beau request example-request --param="hello=world"
 ```
 

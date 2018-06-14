@@ -30,12 +30,11 @@ cookiejar: true
 
 ### Version
 
-The version is used to know what version of Beau this configuration was built
-for. For now it doesn't actually do anything as the schema will keep on changing
-freely until version 1 is hit. After that the major version of Beau will change
-if the schema changes.
+The version is used to know what major version of Beau a given configuration was
+built for. Beau will try using any valid config even if there's a version
+mismatch. It'll show a warning when that happens.
 
-You can omit this value if you'd like. If it is omitted Beau will asume that
+You can omit this value if you'd like. If it is omitted Beau will assume that
 this config will work with the current version of Beau.
 
 ```yaml

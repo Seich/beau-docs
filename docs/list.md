@@ -5,7 +5,7 @@ aliases.
 
 ## Usage
 
-```
+```bash
 Lists all available requests in the config file.
 
 USAGE
@@ -19,16 +19,16 @@ OPTIONS
 
 ### Example
 
-```
+```bash
 $ beau list
 ```
 
 The out will generally look like this:
 
-```
+```bash
   HTTP Verb      Alias           Endpoint
-  GET            get-post        http://jsonplaceholder.typicode.com/posts/1
-  GET            posts           http://jsonplaceholder.typicode.com/posts/
-  POST           new-post        http://jsonplaceholder.typicode.com/posts/
-  GET            post-user       http://jsonplaceholder.typicode.com/users/$posts.body.0.userId
+  GET            get-post        http://example.com/posts/1
+  GET            posts           http://example.com/posts/
+  POST           new-post        http://example.com/posts/
+  GET            post-user       http://example.com/users/$posts.body.0.userId
 ```

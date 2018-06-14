@@ -1,55 +1,77 @@
 # Getting Started
-In just a couple of steps you can have Beau up and running on your local machine.
+
+## Installation
+
+You can install Beau using npm:
+
+```bash
+$ npm install -g beau
+```
 
 ## Writing a config file
-The first thing you should do is create a config file. By default this should be named `beau.yml`. You start by specifying an endpoint:
+
+The first thing you should do is create a config file. By default this should be
+named `beau.yml`. You can start by specifying an endpoint:
+
+> We'll be using [pokeapi](https://pokeapi.co) as our example endpoint.
 
 **beau.yml**
 
 ```yaml
-Endpoint: http://example.com
+endpoint: https://pokeapi.co/api/v2
 ```
 
-Now you can add any requests you want; a request follows the format `<METHOD> <PATH>: <ALIAS>`. Like this:
+Now you can add any requests you want; a request follows the format
+`<METHOD> <PATH>: <ALIAS>`. For example, let's fetch Blaziken, pokemon number
+257:
 
 **beau.yml**
 
 ```yaml
-Endpoint: http://example.com
+endpoint: https://pokeapi.co/api/v2
 
-GET /version: get-version
+GET /pokemon/257:
+	alias: blaziken
 ```
 
-The alias is used to tell Beau what request you want to make.
+_blaziken_ is our alias, it will be used to tell Beau what request you want to
+make.
 
 ## Using Beau
-Now that’d you’ve written your request file you can tell Beau you want to make a request like this:
 
-```
-npx beau request get-version
+Now that’d you’ve written your request file you can tell Beau you want to make a
+request like this:
+
+```bash
+$ beau request blaziken
 ```
 
 Beau will let you know once it’s done executing and will print the response:
 
-```
+```json
 Status              Endpoint
 200                 http://example.com/version
 
 {
-	version: “0.9”
+	forms: […],
+	abilities: […],
+	stats: […],
+	name: "blaziken",
+	weight: 520,
+	moves: […],
+	sprites: {…},
+	held_items: [],
+	location_area_encounters: "/api/v2/pokemon/257/encounters",
+	height: 19,
+	is_default: true,
+	species: {…},
+	id: 257,
+	order: 329,
+	game_indices: […],
+	base_experience: 239,
+	types: […]
 }
 ```
 
-And that’s it! If you’d like to install beau you can run:
-
-```
-npm install -g beau
-```
-
-That way you can call it without using `npx` in the future like:
-
-```
-Beau request get-version
-```
-
-That’s pretty much it. You are well on your way to mastering Beau. Take a look at the [requests](/docs/requests) section to learn more on what a request can do.
+And that’s it! You are well on your way to mastering Beau. Take a look at the
+[requests](/docs/requests) section to learn more on what a request can do.
