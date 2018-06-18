@@ -39,6 +39,29 @@ header {
     height: 32px;
     margin-top: -6px;
   }
+
+  .search {
+    position: relative;
+    top: -3px;
+
+    svg {
+      height: 18px;
+      position: absolute;
+      top: 16px;
+      left: 8px;
+      z-index: 10;
+    }
+
+    input {
+      background: rgba(0, 0, 0, 0.15);
+      border: none;
+      border-radius: 3px;
+      color: white;
+      font-size: 1.2em;
+      padding: 0.2em 0.5em;
+      padding-left: 35px;
+    }
+  }
 }
 
 @media (max-width: 790px) {
@@ -48,5 +71,13 @@ header {
     a {
       font-size: 1.3em;
     }
+
+    ul li {
+      margin: 10px 0.5em;
+    }
+  }
+
+  .search {
+    display: none;
   }
 }

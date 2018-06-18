@@ -6,20 +6,22 @@
 			<li class="docs__sidebar__topic">
 				<%= topic.name %>
 
-				<ul class="docs__sidebar__topic__sub">
-					<% topic.submenu.forEach(([name, link]) => {
+					<ul class="docs__sidebar__topic__sub">
+						<% topic.submenu.forEach(([name, link]) => {
 						const classes = (
 							current.source === link.split('.')[0] ?
 							'docs__sidebar__topic__sub__sub-active' :
 							''
 						);
 					%>
-						<li class="docs__sidebar__topic__sub__sub <%= classes %>">
-							<a href="<%= link %>"><%= name %></a>
-						</li>
-					<% }); %>
-				</ul>
+							<li class="docs__sidebar__topic__sub__sub <%= classes %>">
+								<a href="<%= link %>">
+									<%= name %>
+								</a>
+							</li>
+							<% }); %>
+					</ul>
 			</li>
-		<% }); %>
+			<% }); %>
 	</ul>
 </nav>
