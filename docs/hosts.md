@@ -131,3 +131,53 @@ hosts:
 
 Every set of defaults will be merged with the global defaults first. So you can
 mix and match as needed.
+
+## Alternative Syntax
+
+You can also define hosts by specifying multiple documents in the YAML file. In
+YAML you can define multiple document by separating them with "---". If more
+than one document is defined, Beau will take the first one as the "global" one.
+Any additional ones will be appended to the hosts configuration as additional
+hosts.
+
+These two examples are equivalent:
+
+```yaml
+endpoint: http://posts.example.com
+GET /:
+	alias: posts
+	headers:
+		Authentication: Bearer $session:create-session.body.token
+
+hosts:
+	- host: session
+	  endpoint: http://sessions.example.com
+
+	  POST /:
+	  	alias: create-session
+	  	payload:
+	  		username: user
+	  		password: pass
+```
+
+```yaml
+endpoint: http://posts.example.com
+GET /:
+	alias: posts
+	headers:
+		Authentication: Bearer $session:create-session.body.token
+
+---
+host: session
+endpoint: http://sessions.example.com
+
+POST /:
+	alias: create-session
+	payload:
+		username: user
+		password: pass
+```
+
+It's not necessarily shorter but it might prove more convenient by reducing
+indentation levels. Internally they are exactly the same so feel free to use
+whichever you find nicer to use.
