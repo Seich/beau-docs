@@ -1,10 +1,15 @@
+$color1: #fafafa;
+$color2: rgba(233, 74, 88, 1);
+$color3: rgba(204, 51, 51, 1);
+$color4: rgba(73, 88, 232, 1);
+$color5: rgba(102, 51, 204, 1);
+
 code,
 pre {
-  background: #fafafa;
+  background: $color1;
 }
 
 pre {
-  border: 1px solid #eaeaea;
   padding: 1.5em 1em;
   margin: 0.5em 0;
   overflow: auto;
@@ -33,7 +38,7 @@ pre[class*="language-"] {
   -moz-hyphens: none;
   -ms-hyphens: none;
   hyphens: none;
-  color: #592ef5;
+  color: $color2;
 }
 
 /* Inline code */
@@ -48,11 +53,11 @@ pre[class*="language-"] {
 .token.prolog,
 .token.doctype,
 .token.cdata {
-  color: #6c6783;
+  color: $color3;
 }
 
 .token.punctuation {
-  color: #6c6783;
+  color: $color3;
 }
 
 .token.namespace {
@@ -63,23 +68,23 @@ pre[class*="language-"] {
 .token.operator,
 .token.number,
 .language-yaml .token.string {
-  color: #e94a58;
+  color: $color4;
 }
 
 .token.property,
 .token.function {
-  color: #592ef5;
+  color: $color5;
 }
 
 .token.tag-id,
 .token.selector,
 .token.atrule-id {
-  color: #eeebff;
+  color: $color5;
 }
 
 code.language-javascript,
 .token.attr-name {
-  color: #c4b9fe;
+  color: $color5;
 }
 
 code.language-css,
