@@ -3,29 +3,38 @@
 		"quickstart": {
 			"name": "Quick Start",
 			"submenu": [
-				["What is Beau?", "what-is-beau.html"],
-				["Getting Started", "index.html"]
+				["What is Beau?", "/docs/what-is-beau.html"],
+				["Getting Started", "/docs/index.html"]
 			]
 		},
 		"configuration": {
 			"name": "Configuration",
 			"submenu": [
-				["Requests", "requests.html"],
-				["Composition", "composition.html"],
-				["Defaults", "defaults.html"],
-				["Plugins", "plugins.html"],
-				["Environment Variables", "environment-variables.html"],
-				["Hosts", "hosts.html"],
-				["Settings", "settings.html"]
+				["Requests", "/docs/requests.html"],
+				["Composition", "/docs/composition.html"],
+				["Defaults", "/docs/defaults.html"],
+				["Plugins", "/docs/plugins.html"],
+				["Environment Variables", "/docs/environment-variables.html"],
+				["Hosts", "/docs/hosts.html"],
+				["Settings", "/docs/settings.html"]
+			]
+		},
+
+		"plugins": {
+			"name": "Built-in Plugins",
+			"submenu": [
+				["Date", "/docs/plugin/date.html"],
+				["FileSystem", "/docs/plugin/filesystem.html"],
+				["UUID", "/docs/plugin/uuid.html"]
 			]
 		},
 
 		"cli": {
 			"name": "CLI",
 			"submenu": [
-				["Request", "request.html"],
-				["List", "list.html"],
-				["DotEnv", "dotenv.html"]
+				["Request", "/docs/cli/request.html"],
+				["List", "/docs/cli/list.html"],
+				["DotEnv", "/docs/cli/dotenv.html"]
 			]
 		}
 	}
