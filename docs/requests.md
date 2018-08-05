@@ -14,14 +14,14 @@ Here's an example:
 
 ```yaml
 POST /post/:
-  alias: post
-  params:
-  	id: 25
-  headers:
-  	authentication: "Bearer token"
-  payload:
-  	name: David
-  	lastname: Diaz
+    alias: post
+    params:
+        id: 25
+    headers:
+        authentication: "Bearer token"
+    payload:
+        name: David
+    lastname: Diaz
 ```
 
 ## Key
@@ -34,6 +34,7 @@ followed by a path. The path will be appended to the current
 These are all valid keys:
 
 ```yaml
+
 ...
 POST /path: ...
 GET /path: ...
@@ -54,8 +55,9 @@ type. It allows special characters but if you expect to compose a given request
 you should avoid using dots.
 
 ```yaml
+
 ...
-	alias: name
+alias: name
 ```
 
 ### Headers
@@ -86,8 +88,10 @@ request.
 ### Payload
 
 The payload is where you set the request's body. It will be converted to json
-automatically if given an object, otherwise you can send text. You shouldn't use
-this with `Form` or `FormData` as they'll override each other.
+automatically if given an object, otherwise you can send text.
+
+> You shouldn't use this with **Form** or **FormData** as they'll override each
+> other.
 
 ```yaml
 ...
@@ -97,8 +101,9 @@ this with `Form` or `FormData` as they'll override each other.
 ```
 
 ```yaml
+
 ...
-	payload: "Hello World!"
+payload: "Hello World!"
 ```
 
 ### Form
@@ -106,8 +111,9 @@ this with `Form` or `FormData` as they'll override each other.
 The form key automatically changes the request so that its content is a
 URL-Encoded form. All key-values are encoded and sent as the payload. The
 Content-Type header is set to `application/x-www-form-urlencoded` accordingly.
-You shouldn't use this with `Payload` or `FormData` as they'll override each
-other.
+
+> You shouldn't use this with **Payload** or **FormData** as they'll override
+> each other.
 
 ```yaml
 ...
@@ -120,8 +126,11 @@ other.
 
 The FormData key automatically changes the request so that its content is a
 `multipart/form-data` form. It's Content-Type header is set accordingly. This is
-mainly used if you want to upload file and submit other binary data. You
-shouldn't use this with `Payload` or `Form` as they'll override each other.
+mainly used if you want to upload file and submit other binary data. Do not pass
+a null value, it'll cause the request to fail.
+
+> You shouldn't use this with **Payload** or **Form** as they'll override each
+> other.
 
 ```yaml
 ...
