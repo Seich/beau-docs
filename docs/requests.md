@@ -14,31 +14,31 @@ Here's an example:
 
 ```yaml
 POST /post/:
-    alias: post
-    params:
-        id: 25
-    headers:
-        authentication: "Bearer token"
-    payload:
-        name: David
-        lastname: Diaz
+  alias: post
+  params:
+    id: 25
+  headers:
+    authentication: "Bearer token"
+  payload:
+    name: David
+    lastname: Diaz
 ```
 
-Sometimes you might need to make calls to the same `METHOD /path` combination, in 
-those cases you can list multiple sets of configurations underneath the key. For
-example, if you wanted to test an endpoint with an optional payload value you 
-could do it like this:
+Sometimes you might need to make calls to the same `METHOD /path` combination,
+in those cases you can list multiple sets of configurations underneath the key.
+For example, if you wanted to test an endpoint with an optional payload value
+you could do it like this:
 
-```
+```yaml
 POST /path:
-    - alias: first
-      payload:
-        optional: true
-    - alias: second
-```````
+  - alias: first
+    payload:
+      optional: true
+  - alias: second
+```
 
-In this case you can call either ``first`` or ``second`` and still be refering to the 
-same path while avoiding key collitions.
+In this case you can call either `first` or `second` and still be referring to
+the same path while avoiding key collisions.
 
 ## Key
 
@@ -50,15 +50,13 @@ followed by a path. The path will be appended to the current
 These are all valid keys:
 
 ```yaml
-
-...
 POST /path: ...
 GET /path: ...
 PATCH /path: ...
 PUT /path: ...
 ```
 
-The `<path>` can also be a full URL. If it is, the endpoint will be ignored for 
+The `<path>` can also be a full URL. If it is, the endpoint will be ignored for
 that particular request. This is useful for one-off requests to a separate api.
 
 ## Options
@@ -74,8 +72,7 @@ type. It allows special characters but if you expect to compose a given request
 you should avoid using dots.
 
 ```yaml
-
-...
+---
 alias: name
 ```
 
@@ -120,8 +117,7 @@ automatically if given an object, otherwise you can send text.
 ```
 
 ```yaml
-
-...
+---
 payload: "Hello World!"
 ```
 
