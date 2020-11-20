@@ -11,6 +11,7 @@ cd ..
 harp compile
 cp -a www/. out/.
 cd out
+wget https://raw.githubusercontent.com/Seich/Beau/master/schema.json
 
 git add -A
 git commit -m "Automated deployment to GitHub Pages: ${CIRCLE_SHA1}" --allow-empty
