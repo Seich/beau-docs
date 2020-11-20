@@ -153,3 +153,18 @@ a null value, it'll cause the request to fail.
 		name: David
 		lastname: Diaz
 ```
+
+## Reusing a Path
+If you want to reuse a path for a request with different settings you can pass
+an array of parameters to the path. For example you might want to test an
+authentication version of a request and one that is not:
+
+```yaml
+...
+
+GET /users:
+  - alias: get-users-without-auth
+  - alias: get-users
+    headers:
+      Authentication: Bearer $session.body.token
+```
