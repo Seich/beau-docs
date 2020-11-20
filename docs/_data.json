@@ -4,7 +4,8 @@
 			"name": "Quick Start",
 			"submenu": [
 				["What is Beau?", "/docs/what-is-beau.html"],
-				["Getting Started", "/docs/index.html"]
+				["Getting Started", "/docs/index.html"],
+				["JSON Schema & Autocompletion", "/docs/schema.html"]
 			]
 		},
 		"configuration": {
