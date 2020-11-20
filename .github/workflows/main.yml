@@ -23,3 +23,5 @@ jobs:
           target_branch: gh-pages
           build_dir: www
           jekyll: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
