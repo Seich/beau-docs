@@ -1,0 +1,25 @@
+name: Publish Site
+
+on:
+  push:
+    branches: [ master ]
+    
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2      
+      - uses: actions/setup-node@v2-beta
+      - name: Download latest schema
+        run: wget https://raw.githubusercontent.com/Seich/Beau/master/schema.json
+      - name: Compile Site
+        run: npx harp compile
+      - name: Publish site
+        if: success()
+        uses: crazy-max/ghaction-github-pages@v2
+        with:
+          target_branch: gh-pages
+          build_dir: www
+          jekyll: false
