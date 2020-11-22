@@ -22,7 +22,7 @@ pre[class*="language-"] {
     "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono",
     "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L",
     "Courier New", Courier, monospace;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.375;
   direction: ltr;
   text-align: left;
@@ -38,26 +38,52 @@ pre[class*="language-"] {
   -moz-hyphens: none;
   -ms-hyphens: none;
   hyphens: none;
-  color: $color2;
+  background: #2a2734;
+  color: #9a86fd;
+}
+
+pre > code[class*="language-"] {
+  font-size: 1em;
+}
+
+pre[class*="language-"]::-moz-selection,
+pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection,
+code[class*="language-"] ::-moz-selection {
+  text-shadow: none;
+  background: #6a51e6;
+}
+
+pre[class*="language-"]::selection,
+pre[class*="language-"] ::selection,
+code[class*="language-"]::selection,
+code[class*="language-"] ::selection {
+  text-shadow: none;
+  background: #6a51e6;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: 1em;
+  margin: 0.5em 0;
+  overflow: auto;
 }
 
 /* Inline code */
-:not(pre) > code {
+:not(pre) > code[class*="language-"] {
   padding: 0.1em;
   border-radius: 0.3em;
-  background: #fafafa;
-  font-size: 0.9em;
 }
 
 .token.comment,
 .token.prolog,
 .token.doctype,
 .token.cdata {
-  color: $color3;
+  color: #6c6783;
 }
 
 .token.punctuation {
-  color: $color3;
+  color: #6c6783;
 }
 
 .token.namespace {
@@ -66,25 +92,24 @@ pre[class*="language-"] {
 
 .token.tag,
 .token.operator,
-.token.number,
-.language-yaml .token.string {
-  color: $color4;
+.token.number {
+  color: #e09142;
 }
 
 .token.property,
 .token.function {
-  color: $color5;
+  color: #9a86fd;
 }
 
 .token.tag-id,
 .token.selector,
 .token.atrule-id {
-  color: $color5;
+  color: #eeebff;
 }
 
 code.language-javascript,
 .token.attr-name {
-  color: $color5;
+  color: #c4b9fe;
 }
 
 code.language-css,
@@ -104,7 +129,7 @@ code.language-scss,
 .token.statement,
 .token.regex,
 .token.atrule {
-  color: #eb8926;
+  color: #ffcc99;
 }
 
 .token.placeholder,
@@ -141,4 +166,32 @@ code.language-scss,
 pre > code.highlight {
   outline: 0.4em solid #8a75f5;
   outline-offset: 0.4em;
+}
+
+/* overrides color-values for the Line Numbers plugin
+ * http://prismjs.com/plugins/line-numbers/
+ */
+.line-numbers .line-numbers-rows {
+  border-right-color: #2c2937;
+}
+
+.line-numbers-rows > span:before {
+  color: #3c3949;
+}
+
+/* overrides color-values for the Line Highlight plugin
+* http://prismjs.com/plugins/line-highlight/
+*/
+.line-highlight {
+  background: rgba(224, 145, 66, 0.2);
+  background: -webkit-linear-gradient(
+    left,
+    rgba(224, 145, 66, 0.2) 70%,
+    rgba(224, 145, 66, 0)
+  );
+  background: linear-gradient(
+    to right,
+    rgba(224, 145, 66, 0.2) 70%,
+    rgba(224, 145, 66, 0)
+  );
 }
