@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Beau.js | Testing APIs made easy</title>
+	<link rel="stylesheet" href="/styles/screen.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
+
+</head>
+
+<body>
+	<header>
+		<div class="logo">
+			<a href="/">
+				<img src="/assets/beau.svg" alt="Beau">
+			</a>
+		</div>
+		<ul>
+			<li class="search">
+				<label>
+					<svg viewBox="0 0 568 554">
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M570.39 215.5C570.39 334.517 473.908 431 354.89 431C305.323 431 259.664 414.265 223.255 386.137L58.3315 551.061C54.4262 554.966 48.0946 554.966 44.1893 551.061L5.82843 512.7C1.92319 508.795 1.92319 502.463 5.82841 498.558L173.104 331.282C151.76 297.84 139.39 258.115 139.39 215.5C139.39 96.4826 235.873 0 354.89 0C473.908 0 570.39 96.4826 570.39 215.5ZM507.39 215C507.39 299.5 438.89 368 354.39 368C269.891 368 201.39 299.5 201.39 215C201.39 130.5 269.891 62 354.39 62C438.89 62 507.39 130.5 507.39 215Z"
+						 transform="translate(-2.39035)" fill="#fff" />
+					</svg>
+
+					<input type="search" id="search">
+				</label>
+			</li>
+			<li>
+				<a href="/docs">Documentation</a>
+			</li>
+			<li class="github">
+				<a href="https://github.com/seich/beau">
+					<img src="/assets/github.png" alt="Github Logo">
+				</a>
+			</li>
+		</ul>
+	</header>
+<div class="docs">
+
+	<a class="docs__menu__toggle" data-menu-toggle>Menu</a>
+
+	<nav class="docs__sidebar">
+	<ul class="docs__sidebar__main">
+		
+			<li class="docs__sidebar__topic">
+				Quick Start
+
+					<ul class="docs__sidebar__topic__sub">
+						
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/what-is-beau.html">
+									What is Beau?
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/index.html">
+									Getting Started
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/schema.html">
+									JSON Schema &amp; Autocompletion
+								</a>
+							</li>
+							
+					</ul>
+			</li>
+			
+			<li class="docs__sidebar__topic">
+				Configuration
+
+					<ul class="docs__sidebar__topic__sub">
+						
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/requests.html">
+									Requests
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/composition.html">
+									Composition
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/defaults.html">
+									Defaults
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/plugins.html">
+									Plugins
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/environment-variables.html">
+									Environment Variables
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/hosts.html">
+									Hosts
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/settings.html">
+									Settings
+								</a>
+							</li>
+							
+					</ul>
+			</li>
+			
+			<li class="docs__sidebar__topic">
+				Built-in Plugins
+
+					<ul class="docs__sidebar__topic__sub">
+						
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/plugin/date.html">
+									Date
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/plugin/filesystem.html">
+									FileSystem
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/plugin/uuid.html">
+									UUID
+								</a>
+							</li>
+							
+					</ul>
+			</li>
+			
+			<li class="docs__sidebar__topic">
+				CLI
+
+					<ul class="docs__sidebar__topic__sub">
+						
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/cli/request.html">
+									Request
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/cli/list.html">
+									List
+								</a>
+							</li>
+							
+					</ul>
+			</li>
+			
+	</ul>
+</nav>
+
+	<main class="docs__main" role="main">
+		<div class="docs__container">
+			<h1>Environment Variables</h1><p>Environment variables allows you to set variables arbitrarily. These variables
+are added to the internal cache just as the response of any other request is.
+This means they can be used anywhere normal requests can be composed on. These
+are added under the <code>env</code> key, which means you can compose them using <code>$env</code>
+anywhere you want to.</p>
+<h2>Key</h2><p>You can define them using the <code>environment</code> key. All values under this key will
+be available under the <code>$env</code> variable for your use.</p>
+<pre><code class="language-yaml">...
+
+environment:
+  the:
+    post: 15
+
+GET /posts/$env.the.post: get-post</code></pre>
+<h2>DotEnv</h2><p>Beau supports <a href="https://github.com/motdotla/dotenv">DotEnv</a> out of the box. Any
+variables defined in your .env file will be available as a environmental
+variable within your beau.yml file.</p>
+<h3>Example</h3><p>Given this <code>.env</code> file:</p>
+<pre><code>POST=1</code></pre><p>You&#39;d have <code>POST</code> available under <code>$env._</code> in your beau file. You can use it
+like this:</p>
+<pre><code class="language-yaml">...
+GET /post/$env._.POST: get-post</code></pre>
+<p>Keep in mind that variables defined in your <code>.env</code> will override variables
+defined in your beau.yml file. So given this <code>beau.yml</code> file:</p>
+<pre><code class="language-yaml">...
+environment:
+    _:
+        post: 1
+
+GET /post/$env._.post: get-post</code></pre>
+<p>and this <code>.env</code> file:</p>
+<pre><code>post=2</code></pre><p><code>$env._.post</code> will resolve to &quot;2&quot;. You can use this to have defaults in place
+which can be replaced locally as needed.</p>
+<p>Remember to keep your .env file out of your repo to prevent weird, hard-to-debug
+bugs.</p>
+<blockquote>
+<p>These external environment variables are also shared with the <code>param</code> flag
+when requesting something. They also have a lower priority so you can use the
+<code>param</code> flag to override these values. Checkout
+<a href="/docs/cli/request.html#params">Request</a> for more information.</p>
+</blockquote>
+		</div>
+	</main>
+</div>
+
+<script>
+	var btn = document.querySelector('[data-menu-toggle]');
+	var sidebar = document.querySelector('.docs__sidebar');
+
+	btn.addEventListener('click', function() {
+		sidebar.classList.toggle('is-open');
+	});
+</script>
+
+<script src="/assets/prism.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript"> docsearch({
+        apiKey: 'e9f47a09d3b5eab824f48cc26b4227a7',
+        indexName: 'beaujs',
+        inputSelector: '#search',
+        debug: false
+    });
+</script>
+</body>
+
+</html>

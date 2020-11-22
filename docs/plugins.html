@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Beau.js | Testing APIs made easy</title>
+	<link rel="stylesheet" href="/styles/screen.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
+
+</head>
+
+<body>
+	<header>
+		<div class="logo">
+			<a href="/">
+				<img src="/assets/beau.svg" alt="Beau">
+			</a>
+		</div>
+		<ul>
+			<li class="search">
+				<label>
+					<svg viewBox="0 0 568 554">
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M570.39 215.5C570.39 334.517 473.908 431 354.89 431C305.323 431 259.664 414.265 223.255 386.137L58.3315 551.061C54.4262 554.966 48.0946 554.966 44.1893 551.061L5.82843 512.7C1.92319 508.795 1.92319 502.463 5.82841 498.558L173.104 331.282C151.76 297.84 139.39 258.115 139.39 215.5C139.39 96.4826 235.873 0 354.89 0C473.908 0 570.39 96.4826 570.39 215.5ZM507.39 215C507.39 299.5 438.89 368 354.39 368C269.891 368 201.39 299.5 201.39 215C201.39 130.5 269.891 62 354.39 62C438.89 62 507.39 130.5 507.39 215Z"
+						 transform="translate(-2.39035)" fill="#fff" />
+					</svg>
+
+					<input type="search" id="search">
+				</label>
+			</li>
+			<li>
+				<a href="/docs">Documentation</a>
+			</li>
+			<li class="github">
+				<a href="https://github.com/seich/beau">
+					<img src="/assets/github.png" alt="Github Logo">
+				</a>
+			</li>
+		</ul>
+	</header>
+<div class="docs">
+
+	<a class="docs__menu__toggle" data-menu-toggle>Menu</a>
+
+	<nav class="docs__sidebar">
+	<ul class="docs__sidebar__main">
+		
+			<li class="docs__sidebar__topic">
+				Quick Start
+
+					<ul class="docs__sidebar__topic__sub">
+						
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/what-is-beau.html">
+									What is Beau?
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/index.html">
+									Getting Started
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/schema.html">
+									JSON Schema &amp; Autocompletion
+								</a>
+							</li>
+							
+					</ul>
+			</li>
+			
+			<li class="docs__sidebar__topic">
+				Configuration
+
+					<ul class="docs__sidebar__topic__sub">
+						
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/requests.html">
+									Requests
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/composition.html">
+									Composition
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/defaults.html">
+									Defaults
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/plugins.html">
+									Plugins
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/environment-variables.html">
+									Environment Variables
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/hosts.html">
+									Hosts
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/settings.html">
+									Settings
+								</a>
+							</li>
+							
+					</ul>
+			</li>
+			
+			<li class="docs__sidebar__topic">
+				Built-in Plugins
+
+					<ul class="docs__sidebar__topic__sub">
+						
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/plugin/date.html">
+									Date
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/plugin/filesystem.html">
+									FileSystem
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/plugin/uuid.html">
+									UUID
+								</a>
+							</li>
+							
+					</ul>
+			</li>
+			
+			<li class="docs__sidebar__topic">
+				CLI
+
+					<ul class="docs__sidebar__topic__sub">
+						
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/cli/request.html">
+									Request
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/cli/list.html">
+									List
+								</a>
+							</li>
+							
+					</ul>
+			</li>
+			
+	</ul>
+</nav>
+
+	<main class="docs__main" role="main">
+		<div class="docs__container">
+			<h1>Plugins</h1><p>Beau supports two types of plugins: Modifiers and Dynamic Values. Modifiers
+allow you to modify request settings before they are made and responses before
+they are stored to the internal cache or displayed to the command line.</p>
+<p>To use a plugin you have to specify it as part of your <code>beau.yml</code> configuration
+file. You list these under the <code>plugins</code> key. You should pass the plugin name in
+CamelCase. If you pass an object it&#39;s value will be passed onto the plugin;
+These can be used to configure how the plugin behaves.</p>
+<p>Beau will attempt to load every plugin by first transforming it&#39;s name to
+kebab-case and prefixing it with <code>beau-</code>. For example <code>jwt</code> will attempt to load
+<code>beau-jwt</code> as a dependency.</p>
+<pre><code class="language-yaml">endpoint: http://example.com
+plugins:
+    - MyPlugin
+    - AnotherPlugin:
+        settings:
+            setting: 1
+            setting2: true
+...</code></pre>
+<h2>Modifiers</h2><p>There are two types of Modifiers, request and response modifiers. These, are
+their name reveals allow you to either modify the request being made or the
+response received.</p>
+<p>If a plugin registers a modifier it&#39;ll be passed the request after it&#39;s composed
+variables have been replaced and the original request including any keys that
+weren&#39;t used while making the request. This means you can pass additional
+options to plugins as part of the request. This can be handy as a way to prevent
+modifier execution or make changes in configuration for a particular request.</p>
+<h2>Dynamic Values</h2><p>Dynamic values allow you to call special functions from within your Beau
+configuration file. To call them you use a dollar sign followed by square
+brackets. Within these brackets you can specify what function you&#39;d like to
+call. For example:</p>
+<pre><code class="language-yaml">endpoint: http://example.com
+
+GET /user:
+    alias: get-user
+    headers:
+        authorization: $[jwt(&#39;this is a secret&#39;)]</code></pre>
+<p>Notice that within the square brackets the function is invoked exactly as a
+javascript function allowing you to pass over arguments along with the function
+call.</p>
+<p>Normally a Dynamic Value is cast to a string and replaced in place of it&#39;s call;
+If the Dynamic Value is the only value for a given field it can change the
+field&#39;s type to any special value. This allows plugin developers to use special
+objects internally.</p>
+<h2>Making your own</h2><p>Plugins in Beau are very straightforward to create all you need is to define a
+javascript class:</p>
+<pre><code class="language-javascript">class Date {
+    constructor(registry, settings = {}) {}
+}</code></pre>
+<p>A new instance of this class will be created whenever Beau is invoked. It&#39;ll
+receive a reference to the Beau Plugin Registry and any settings that were
+specified as part of the beau configuration. After that you can use the registry
+to register any modifiers or dynamic values you want to have added.</p>
+<p>The plugin registry has a couple of methods to define these:</p>
+<ul>
+<li><p><code>registry.addPreRequestModifier(fn)</code></p>
+</li>
+<li><p><code>registry.addPostRequestModifier(fn)</code></p>
+</li>
+<li><p><code>registry.defineDynamicValue(name, fn)</code></p>
+</li>
+</ul>
+<p>They all take a function that&#39;ll be called whenever the plugin is used within
+Beau. When defining a dynamic value you also have to specify it&#39;s name.</p>
+<p>Here&#39;s a full example:</p>
+<pre><code class="language-javascript">class Date {
+    constructor(registry, settings = {}) {
+        registry.addPreRequestModifier(this.preRequest);
+        registry.addPostRequestModifier(this.preRequest);
+        registry.defineDynamicValue(&#39;date&#39;, this.date);
+    }
+
+    preRequest(request, orig) {
+        request.headers.startDate = new Date();
+        return request;
+    }
+
+    postRequest(response, orig) {
+        response.headers.endDate = new Date();
+        return response;
+    }
+
+    date() {
+        return new Date().toString();
+    }
+}
+
+module.exports = Modifiers;</code></pre>
+<p>Here we are making it so every request and response has a header added with the
+current date. It also adds a <code>date</code> dynamic value that when called will print
+the current date. You can define as many modifiers and dynamic values as you
+want from a single class.</p>
+<p>Notice that the modifiers receive the request/response they are meant to edit
+and the original request as defined in the Beau configuration file. This allows
+you to access values that Beau didn&#39;t use as part of the request. You can use
+these arbitrary values to add additional options to your plugin.</p>
+		</div>
+	</main>
+</div>
+
+<script>
+	var btn = document.querySelector('[data-menu-toggle]');
+	var sidebar = document.querySelector('.docs__sidebar');
+
+	btn.addEventListener('click', function() {
+		sidebar.classList.toggle('is-open');
+	});
+</script>
+
+<script src="/assets/prism.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript"> docsearch({
+        apiKey: 'e9f47a09d3b5eab824f48cc26b4227a7',
+        indexName: 'beaujs',
+        inputSelector: '#search',
+        debug: false
+    });
+</script>
+</body>
+
+</html>

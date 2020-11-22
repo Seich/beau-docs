@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Beau.js | Testing APIs made easy</title>
+	<link rel="stylesheet" href="/styles/screen.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
+
+</head>
+
+<body>
+	<header>
+		<div class="logo">
+			<a href="/">
+				<img src="/assets/beau.svg" alt="Beau">
+			</a>
+		</div>
+		<ul>
+			<li class="search">
+				<label>
+					<svg viewBox="0 0 568 554">
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M570.39 215.5C570.39 334.517 473.908 431 354.89 431C305.323 431 259.664 414.265 223.255 386.137L58.3315 551.061C54.4262 554.966 48.0946 554.966 44.1893 551.061L5.82843 512.7C1.92319 508.795 1.92319 502.463 5.82841 498.558L173.104 331.282C151.76 297.84 139.39 258.115 139.39 215.5C139.39 96.4826 235.873 0 354.89 0C473.908 0 570.39 96.4826 570.39 215.5ZM507.39 215C507.39 299.5 438.89 368 354.39 368C269.891 368 201.39 299.5 201.39 215C201.39 130.5 269.891 62 354.39 62C438.89 62 507.39 130.5 507.39 215Z"
+						 transform="translate(-2.39035)" fill="#fff" />
+					</svg>
+
+					<input type="search" id="search">
+				</label>
+			</li>
+			<li>
+				<a href="/docs">Documentation</a>
+			</li>
+			<li class="github">
+				<a href="https://github.com/seich/beau">
+					<img src="/assets/github.png" alt="Github Logo">
+				</a>
+			</li>
+		</ul>
+	</header>
+<div class="docs">
+
+	<a class="docs__menu__toggle" data-menu-toggle>Menu</a>
+
+	<nav class="docs__sidebar">
+	<ul class="docs__sidebar__main">
+		
+			<li class="docs__sidebar__topic">
+				Quick Start
+
+					<ul class="docs__sidebar__topic__sub">
+						
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/what-is-beau.html">
+									What is Beau?
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/index.html">
+									Getting Started
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/schema.html">
+									JSON Schema &amp; Autocompletion
+								</a>
+							</li>
+							
+					</ul>
+			</li>
+			
+			<li class="docs__sidebar__topic">
+				Configuration
+
+					<ul class="docs__sidebar__topic__sub">
+						
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/requests.html">
+									Requests
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/composition.html">
+									Composition
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/defaults.html">
+									Defaults
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/plugins.html">
+									Plugins
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/environment-variables.html">
+									Environment Variables
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/hosts.html">
+									Hosts
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/settings.html">
+									Settings
+								</a>
+							</li>
+							
+					</ul>
+			</li>
+			
+			<li class="docs__sidebar__topic">
+				Built-in Plugins
+
+					<ul class="docs__sidebar__topic__sub">
+						
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/plugin/date.html">
+									Date
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/plugin/filesystem.html">
+									FileSystem
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/plugin/uuid.html">
+									UUID
+								</a>
+							</li>
+							
+					</ul>
+			</li>
+			
+			<li class="docs__sidebar__topic">
+				CLI
+
+					<ul class="docs__sidebar__topic__sub">
+						
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/cli/request.html">
+									Request
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/cli/list.html">
+									List
+								</a>
+							</li>
+							
+					</ul>
+			</li>
+			
+	</ul>
+</nav>
+
+	<main class="docs__main" role="main">
+		<div class="docs__container">
+			<h1>Getting Started</h1><h2>Installation</h2><p>You can install Beau using npm:</p>
+<pre><code class="language-bash">$ npm install -g beau</code></pre>
+<h2>Writing a config file</h2><p>The first thing you should do is create a config file. By default this should be
+named <code>beau.yml</code>. You can start by specifying an endpoint:</p>
+<blockquote>
+<p>We&#39;ll be using <a href="https://pokeapi.co">pokeapi</a> as our example endpoint.</p>
+</blockquote>
+<p><strong>beau.yml</strong></p>
+<pre><code class="language-yaml">endpoint: https://pokeapi.co/api/v2</code></pre>
+<p>Now you can add any requests you want; a request follows the format
+<code>&lt;METHOD&gt; &lt;PATH&gt;: &lt;ALIAS&gt;</code>. For example, let&#39;s fetch Blaziken, pokemon number
+257:</p>
+<p><strong>beau.yml</strong></p>
+<pre><code class="language-yaml">endpoint: https://pokeapi.co/api/v2
+
+GET /pokemon/257:
+    alias: blaziken</code></pre>
+<p><em>blaziken</em> is our alias, it will be used to tell Beau what request you want to
+make.</p>
+<h2>Using Beau</h2><p>Now that’d you’ve written your request file you can tell Beau you want to make a
+request like this:</p>
+<pre><code class="language-bash">$ beau request blaziken</code></pre>
+<p>Beau will let you know once it’s done executing and will print the response:</p>
+<pre><code class="language-json">Status              Endpoint
+200                 http://example.com/version
+
+{
+    forms: […],
+    abilities: […],
+    stats: […],
+    name: &quot;blaziken&quot;,
+    weight: 520,
+    moves: […],
+    sprites: {…},
+    held_items: [],
+    location_area_encounters: &quot;/api/v2/pokemon/257/encounters&quot;,
+    height: 19,
+    is_default: true,
+    species: {…},
+    id: 257,
+    order: 329,
+    game_indices: […],
+    base_experience: 239,
+    types: […]
+}</code></pre>
+<p>And that’s it! You are well on your way to mastering Beau. Take a look at the
+<a href="/docs/requests">requests</a> section to learn more on what a request can do.</p>
+		</div>
+	</main>
+</div>
+
+<script>
+	var btn = document.querySelector('[data-menu-toggle]');
+	var sidebar = document.querySelector('.docs__sidebar');
+
+	btn.addEventListener('click', function() {
+		sidebar.classList.toggle('is-open');
+	});
+</script>
+
+<script src="/assets/prism.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript"> docsearch({
+        apiKey: 'e9f47a09d3b5eab824f48cc26b4227a7',
+        indexName: 'beaujs',
+        inputSelector: '#search',
+        debug: false
+    });
+</script>
+</body>
+
+</html>

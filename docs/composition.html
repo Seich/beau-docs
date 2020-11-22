@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Beau.js | Testing APIs made easy</title>
+	<link rel="stylesheet" href="/styles/screen.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
+
+</head>
+
+<body>
+	<header>
+		<div class="logo">
+			<a href="/">
+				<img src="/assets/beau.svg" alt="Beau">
+			</a>
+		</div>
+		<ul>
+			<li class="search">
+				<label>
+					<svg viewBox="0 0 568 554">
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M570.39 215.5C570.39 334.517 473.908 431 354.89 431C305.323 431 259.664 414.265 223.255 386.137L58.3315 551.061C54.4262 554.966 48.0946 554.966 44.1893 551.061L5.82843 512.7C1.92319 508.795 1.92319 502.463 5.82841 498.558L173.104 331.282C151.76 297.84 139.39 258.115 139.39 215.5C139.39 96.4826 235.873 0 354.89 0C473.908 0 570.39 96.4826 570.39 215.5ZM507.39 215C507.39 299.5 438.89 368 354.39 368C269.891 368 201.39 299.5 201.39 215C201.39 130.5 269.891 62 354.39 62C438.89 62 507.39 130.5 507.39 215Z"
+						 transform="translate(-2.39035)" fill="#fff" />
+					</svg>
+
+					<input type="search" id="search">
+				</label>
+			</li>
+			<li>
+				<a href="/docs">Documentation</a>
+			</li>
+			<li class="github">
+				<a href="https://github.com/seich/beau">
+					<img src="/assets/github.png" alt="Github Logo">
+				</a>
+			</li>
+		</ul>
+	</header>
+<div class="docs">
+
+	<a class="docs__menu__toggle" data-menu-toggle>Menu</a>
+
+	<nav class="docs__sidebar">
+	<ul class="docs__sidebar__main">
+		
+			<li class="docs__sidebar__topic">
+				Quick Start
+
+					<ul class="docs__sidebar__topic__sub">
+						
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/what-is-beau.html">
+									What is Beau?
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/index.html">
+									Getting Started
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/schema.html">
+									JSON Schema &amp; Autocompletion
+								</a>
+							</li>
+							
+					</ul>
+			</li>
+			
+			<li class="docs__sidebar__topic">
+				Configuration
+
+					<ul class="docs__sidebar__topic__sub">
+						
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/requests.html">
+									Requests
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/composition.html">
+									Composition
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/defaults.html">
+									Defaults
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/plugins.html">
+									Plugins
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/environment-variables.html">
+									Environment Variables
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/hosts.html">
+									Hosts
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/settings.html">
+									Settings
+								</a>
+							</li>
+							
+					</ul>
+			</li>
+			
+			<li class="docs__sidebar__topic">
+				Built-in Plugins
+
+					<ul class="docs__sidebar__topic__sub">
+						
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/plugin/date.html">
+									Date
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/plugin/filesystem.html">
+									FileSystem
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/plugin/uuid.html">
+									UUID
+								</a>
+							</li>
+							
+					</ul>
+			</li>
+			
+			<li class="docs__sidebar__topic">
+				CLI
+
+					<ul class="docs__sidebar__topic__sub">
+						
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/cli/request.html">
+									Request
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/cli/list.html">
+									List
+								</a>
+							</li>
+							
+					</ul>
+			</li>
+			
+	</ul>
+</nav>
+
+	<main class="docs__main" role="main">
+		<div class="docs__container">
+			<h1>Composition</h1><p>Sometimes you want to use the data from a request on another request. For this
+sort of situation Beau allows you to compose any number of requests together.
+You can use any data from the request or the response on any other request.</p>
+<p>You use the alias to compose two requests together. To tell Beau you are
+referencing another request you can use a dollar sign ($) followed by a
+request&#39;s alias like this: <code>$posts</code>.</p>
+<p>Here&#39;s an example. Having this configuration file:</p>
+<pre><code class="language-yaml">version: 1
+endpoint: &#39;http://jsonplaceholder.typicode.com&#39;
+
+POST /posts/:
+  alias: new-post</code></pre>
+<p>In this configuration file we have a request called <code>new-post</code>. This request
+creates a new post and returns it&#39;s id. It looks something like this:</p>
+<pre><code class="language-json">{
+  &quot;id&quot;: 1
+}</code></pre>
+<p>Nice. Let&#39;s say we want to request that post now that it&#39;s created. We can
+create a new request like this:</p>
+<pre><code class="language-yaml">...
+GET /posts/$new-post.response.body.id:
+  alias: get-post</code></pre>
+<p>This look pretty typical except for the first line which looks kind of weird.
+<code>$new-post.body.id</code> is our way of telling Beau that we want a particular request
+to run before running this one. What it&#39;s saying is that we want to grab the
+<code>id</code> from <code>$new-post</code>&#39;s response&#39;s <code>body</code>. So basically we call that request and
+then everything from the response is available and we can use it as a variable
+everywhere else. Beau runs every request depended upon before finally calling a
+request.</p>
+<p>Since most of the time we are going to be using the requests response body you
+can omit the <code>response</code> part making it slightly nicer to use.</p>
+<p>These two are equivalent:</p>
+<pre><code class="language-yaml">...
+GET /posts/$new-post.response.body.id:
+  alias: get-post</code></pre>
+<pre><code class="language-yaml">...
+GET /posts/$new-post.body.id:
+  alias: get-post</code></pre>
+<p>The second being a tad faster to write.</p>
+<p>An important thing to notice is that you can compose into not only a path or
+endpoint but also into the headers, params and payload. Making it pretty
+flexible. Here&#39;s a couple more examples:</p>
+<pre><code class="language-yaml">...
+GET /posts/:
+  params:
+    userId: $user-profile.body.userId</code></pre>
+<pre><code class="language-yaml">...
+GET /posts/:
+  headers:
+    authentication: Bearer $session.body.token</code></pre>
+<pre><code class="language-yaml">GET /posts/:
+  params:
+    userId: $user-profile.body.userId</code></pre>
+<pre><code class="language-yaml">GET /user/greeting:
+  alias: get-greeting
+  payload: &gt;
+   Hello $get-name.body,
+   how are you?</code></pre>
+<p>If you ever want to see what values are available for a particular request you
+can run it with the <code>--verbose</code> flag and Beau will show you all the data it has
+available.</p>
+<pre><code class="language-json">$ beau request new-post
+
+  Status              Endpoint
+  201                 http://jsonplaceholder.typicode.com/posts/
+
+{
+  request: {
+    headers: {
+      accept: &quot;application/json&quot;,
+      content-type: &quot;application/json&quot;,
+      content-length: 2
+    },
+    body: &quot;{}&quot;,
+    endpoint: &quot;http://jsonplaceholder.typicode.com/posts/&quot;
+  },
+  response: {
+    status: 201,
+    headers: {
+      date: &quot;Wed, 27 Dec 2017 04:56:01 GMT&quot;,
+      content-type: &quot;application/json; charset=utf-8&quot;,
+      content-length: &quot;15&quot;,
+      connection: &quot;close&quot;,
+      access-control-allow-credentials: &quot;true&quot;,
+      cache-control: &quot;no-cache&quot;,
+      access-control-expose-headers: &quot;Location&quot;,
+      location: &quot;http://jsonplaceholder.typicode.com/posts/101&quot;,
+    },
+    body: {
+      id: 101
+    }
+  },
+  body: {
+    id: 101
+  }
+}</code></pre>
+		</div>
+	</main>
+</div>
+
+<script>
+	var btn = document.querySelector('[data-menu-toggle]');
+	var sidebar = document.querySelector('.docs__sidebar');
+
+	btn.addEventListener('click', function() {
+		sidebar.classList.toggle('is-open');
+	});
+</script>
+
+<script src="/assets/prism.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript"> docsearch({
+        apiKey: 'e9f47a09d3b5eab824f48cc26b4227a7',
+        indexName: 'beaujs',
+        inputSelector: '#search',
+        debug: false
+    });
+</script>
+</body>
+
+</html>

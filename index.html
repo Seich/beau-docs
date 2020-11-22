@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Beau.js | Testing APIs made easy</title>
+	<link rel="stylesheet" href="/styles/screen.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
+
+</head>
+
+<body>
+	<header>
+		<div class="logo">
+			<a href="/">
+				<img src="/assets/beau.svg" alt="Beau">
+			</a>
+		</div>
+		<ul>
+			<li class="search">
+				<label>
+					<svg viewBox="0 0 568 554">
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M570.39 215.5C570.39 334.517 473.908 431 354.89 431C305.323 431 259.664 414.265 223.255 386.137L58.3315 551.061C54.4262 554.966 48.0946 554.966 44.1893 551.061L5.82843 512.7C1.92319 508.795 1.92319 502.463 5.82841 498.558L173.104 331.282C151.76 297.84 139.39 258.115 139.39 215.5C139.39 96.4826 235.873 0 354.89 0C473.908 0 570.39 96.4826 570.39 215.5ZM507.39 215C507.39 299.5 438.89 368 354.39 368C269.891 368 201.39 299.5 201.39 215C201.39 130.5 269.891 62 354.39 62C438.89 62 507.39 130.5 507.39 215Z"
+						 transform="translate(-2.39035)" fill="#fff" />
+					</svg>
+
+					<input type="search" id="search">
+				</label>
+			</li>
+			<li>
+				<a href="/docs">Documentation</a>
+			</li>
+			<li class="github">
+				<a href="https://github.com/seich/beau">
+					<img src="/assets/github.png" alt="Github Logo">
+				</a>
+			</li>
+		</ul>
+	</header>
+<div class="hero">
+  <img src="/assets/logo.svg" alt="">
+
+  <p>Beau is a general purpose HTTP client that makes testing web APIs easy.</p>
+
+  <pre><code class="language-yaml">npm install -g beau</code></pre>
+</div>
+
+<div class="content">
+  <section>
+    <div class="description">
+      <h1>Simple</h1>
+      <p>Beau is all about productivity. All it takes a yaml file and a couple of lines.</p>
+    </div>
+
+    <div class="example">
+      <pre><code class="language-yaml">endpoint: https://example.com
+
+GET /: home</code></pre>
+    </div>
+  </section>
+
+
+  <section>
+    <div class="description">
+      <h1>Composable</h1>
+      <p>
+        <a href="/docs/composition.html">Chain multiple requests together</a>. Use the output of one request as a header in another.</p>
+    </div>
+    <div class="example">
+      <pre><code class="language-yaml">endpoint: https://example.com
+
+POST /session: session
+
+GET /profile:
+  alias: profile
+  headers:
+    authentication: $session.body.token
+  payload:
+    name: David</code></pre>
+    </div>
+  </section>
+
+  <section>
+    <div class="description">
+      <h1>Extendable</h1>
+      <p>Beau allows you to easily write
+        <a href="/docs/plugins.html">plugins</a> to extend it's functionality. Automate authentication, hash values, and much more.</p>
+    </div>
+    <div class="example">
+      <pre><code class="language-yaml">endpoint: https://example.com
+
+plugins:
+  - jwt:
+      secret: 'hello world'
+
+POST /profile:
+  formdata:
+    picture: $[readFile('cat.jpg')]</code></pre>
+    </div>
+  </section>
+
+  <div class="documentation">
+    <h1>Easy as Pie.</h1>
+    <p>Get started fast by checking out the
+      <a href="/docs">Documentation</a>.</p>
+  </div>
+</div>
+
+
+<footer>
+  David Sergio Díaz © All Rights Reserved.
+</footer>
+<script src="/assets/prism.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript"> docsearch({
+        apiKey: 'e9f47a09d3b5eab824f48cc26b4227a7',
+        indexName: 'beaujs',
+        inputSelector: '#search',
+        debug: false
+    });
+</script>
+</body>
+
+</html>

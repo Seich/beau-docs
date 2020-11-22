@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Beau.js | Testing APIs made easy</title>
+	<link rel="stylesheet" href="/styles/screen.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
+
+</head>
+
+<body>
+	<header>
+		<div class="logo">
+			<a href="/">
+				<img src="/assets/beau.svg" alt="Beau">
+			</a>
+		</div>
+		<ul>
+			<li class="search">
+				<label>
+					<svg viewBox="0 0 568 554">
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M570.39 215.5C570.39 334.517 473.908 431 354.89 431C305.323 431 259.664 414.265 223.255 386.137L58.3315 551.061C54.4262 554.966 48.0946 554.966 44.1893 551.061L5.82843 512.7C1.92319 508.795 1.92319 502.463 5.82841 498.558L173.104 331.282C151.76 297.84 139.39 258.115 139.39 215.5C139.39 96.4826 235.873 0 354.89 0C473.908 0 570.39 96.4826 570.39 215.5ZM507.39 215C507.39 299.5 438.89 368 354.39 368C269.891 368 201.39 299.5 201.39 215C201.39 130.5 269.891 62 354.39 62C438.89 62 507.39 130.5 507.39 215Z"
+						 transform="translate(-2.39035)" fill="#fff" />
+					</svg>
+
+					<input type="search" id="search">
+				</label>
+			</li>
+			<li>
+				<a href="/docs">Documentation</a>
+			</li>
+			<li class="github">
+				<a href="https://github.com/seich/beau">
+					<img src="/assets/github.png" alt="Github Logo">
+				</a>
+			</li>
+		</ul>
+	</header>
+<div class="docs">
+
+	<a class="docs__menu__toggle" data-menu-toggle>Menu</a>
+
+	<nav class="docs__sidebar">
+	<ul class="docs__sidebar__main">
+		
+			<li class="docs__sidebar__topic">
+				Quick Start
+
+					<ul class="docs__sidebar__topic__sub">
+						
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/what-is-beau.html">
+									What is Beau?
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/index.html">
+									Getting Started
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/schema.html">
+									JSON Schema &amp; Autocompletion
+								</a>
+							</li>
+							
+					</ul>
+			</li>
+			
+			<li class="docs__sidebar__topic">
+				Configuration
+
+					<ul class="docs__sidebar__topic__sub">
+						
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/requests.html">
+									Requests
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/composition.html">
+									Composition
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/defaults.html">
+									Defaults
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/plugins.html">
+									Plugins
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/environment-variables.html">
+									Environment Variables
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/hosts.html">
+									Hosts
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/settings.html">
+									Settings
+								</a>
+							</li>
+							
+					</ul>
+			</li>
+			
+			<li class="docs__sidebar__topic">
+				Built-in Plugins
+
+					<ul class="docs__sidebar__topic__sub">
+						
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/plugin/date.html">
+									Date
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/plugin/filesystem.html">
+									FileSystem
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/plugin/uuid.html">
+									UUID
+								</a>
+							</li>
+							
+					</ul>
+			</li>
+			
+			<li class="docs__sidebar__topic">
+				CLI
+
+					<ul class="docs__sidebar__topic__sub">
+						
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/cli/request.html">
+									Request
+								</a>
+							</li>
+							
+							<li class="docs__sidebar__topic__sub__sub ">
+								<a href="/docs/cli/list.html">
+									List
+								</a>
+							</li>
+							
+					</ul>
+			</li>
+			
+	</ul>
+</nav>
+
+	<main class="docs__main" role="main">
+		<div class="docs__container">
+			<h1>Settings</h1><p>These settings change how Beau behaves globally.</p>
+<h2>Keys</h2><h3>Endpoint</h3><p>This endpoint will be used for all top level requests. It&#39;ll be combined with
+every request&#39;s path before making the request. It mostly serves to prevent
+having to type the full url for every request. It is optional though so if you
+want to put the full url on every request you can.</p>
+<p>This setting can be overriden in hosts.</p>
+<pre><code class="language-yaml">endpoint: http://example.com/api</code></pre>
+<h3>CookieJar</h3><p>By setting <code>cookiejar</code> to <code>true</code> you allow Beau to store cookies in memory. When
+using composition these cookies are available for future requests. This allows
+things like cookie-based sessions to work correctly. You could use a plugin to
+store cookies to disk instead if required. This is disabled by default.</p>
+<pre><code class="language-yaml">cookiejar: true</code></pre>
+<h3>Version</h3><p>The version is used to know what major version of Beau a given configuration was
+built for. Beau will try using any valid config even if there&#39;s a version
+mismatch. It&#39;ll show a warning when that happens.</p>
+<p>You can omit this value if you&#39;d like. If it is omitted Beau will assume that
+this config will work with the current version of Beau.</p>
+<pre><code class="language-yaml">version: 1</code></pre>
+		</div>
+	</main>
+</div>
+
+<script>
+	var btn = document.querySelector('[data-menu-toggle]');
+	var sidebar = document.querySelector('.docs__sidebar');
+
+	btn.addEventListener('click', function() {
+		sidebar.classList.toggle('is-open');
+	});
+</script>
+
+<script src="/assets/prism.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript"> docsearch({
+        apiKey: 'e9f47a09d3b5eab824f48cc26b4227a7',
+        indexName: 'beaujs',
+        inputSelector: '#search',
+        debug: false
+    });
+</script>
+</body>
+
+</html>
