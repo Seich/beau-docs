@@ -17,14 +17,17 @@ ARGUMENTS
   ALIAS  The alias of the request to execute.
 
 OPTIONS
-  -P, --param=param    Allows you to inject values into the request's environment.
+  -P, --param=param    [default: ] Allows you to inject values into the request's environment.
   -V, --verbose        Show all additional information available for a command.
   -c, --config=config  [default: beau.yml] The configuration file to be used.
+  -i, --interactive    Choose request interactively.
+  -j, --as-json        Outputs the response as json.
   --no-format          Disables color formatting for usage on external tools.
+  --quiet              Skips the output.
 ```
 
 ```bash
-$ beau request example-request
+$ beau request pokemon
 ```
 
 ## [Params](#params)
@@ -34,13 +37,12 @@ external env variables. They will replace any variables added using `.env`. They
 follow the same format as `.env` for each variable.
 
 ```bash
-$ beau request example-request --param="hello=world"
+$ beau request pokemon --param="pokemon=dragapult"
 ```
 
 You'd be able to use the param within your Beau file like this:
 
 ```yaml
-...
-GET /hello/$env._.hello: helloWorld
-...
+---
+GET /pokemon/$env._.pokemon: pokemon
 ```

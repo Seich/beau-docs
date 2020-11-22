@@ -1,42 +1,41 @@
 {
-	"sidebar": {
-		"quickstart": {
-			"name": "Quick Start",
-			"submenu": [
-				["What is Beau?", "/docs/what-is-beau.html"],
-				["Getting Started", "/docs/index.html"],
-				["JSON Schema & Autocompletion", "/docs/schema.html"]
-			]
-		},
-		"configuration": {
-			"name": "Configuration",
-			"submenu": [
-				["Requests", "/docs/requests.html"],
-				["Composition", "/docs/composition.html"],
-				["Defaults", "/docs/defaults.html"],
-				["Plugins", "/docs/plugins.html"],
-				["Environment Variables", "/docs/environment-variables.html"],
-				["Hosts", "/docs/hosts.html"],
-				["Settings", "/docs/settings.html"]
-			]
-		},
+  "sidebar": {
+    "quickstart": {
+      "name": "Quick Start",
+      "submenu": [
+        ["What is Beau?", "/docs/what-is-beau.html"],
+        ["Getting Started", "/docs/index.html"],
+        ["JSON Schema & Autocompletion", "/docs/schema.html"]
+      ]
+    },
+    "configuration": {
+      "name": "Configuration",
+      "submenu": [
+        ["Requests", "/docs/requests.html"],
+        ["Composition", "/docs/composition.html"],
+        ["Defaults", "/docs/defaults.html"],
+        ["Plugins", "/docs/plugins.html"],
+        ["Environment Variables", "/docs/environment-variables.html"],
+        ["Hosts", "/docs/hosts.html"],
+        ["Settings", "/docs/settings.html"]
+      ]
+    },
 
-		"plugins": {
-			"name": "Built-in Plugins",
-			"submenu": [
-				["Date", "/docs/plugin/date.html"],
-				["FileSystem", "/docs/plugin/filesystem.html"],
-				["UUID", "/docs/plugin/uuid.html"]
-			]
-		},
+    "plugins": {
+      "name": "Built-in Plugins",
+      "submenu": [
+        ["Date", "/docs/plugin/date.html"],
+        ["FileSystem", "/docs/plugin/filesystem.html"],
+        ["UUID", "/docs/plugin/uuid.html"]
+      ]
+    },
 
-		"cli": {
-			"name": "CLI",
-			"submenu": [
-				["Request", "/docs/cli/request.html"],
-				["List", "/docs/cli/list.html"],
-				["DotEnv", "/docs/cli/dotenv.html"]
-			]
-		}
-	}
+    "cli": {
+      "name": "CLI",
+      "submenu": [
+        ["Request", "/docs/cli/request.html"],
+        ["List", "/docs/cli/list.html"]
+      ]
+    }
+  }
 }
